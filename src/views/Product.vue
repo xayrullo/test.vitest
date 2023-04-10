@@ -1,4 +1,4 @@
 <template>
-  <div>Product Detail</div>
+  <div>{{ $t('good_morning') }}</div>
 </template>
 <script setup lang="ts"></script>
