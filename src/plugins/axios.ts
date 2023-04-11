@@ -15,6 +15,4 @@ $axios.interceptors.request.use(
 )
 
 export default $axios
-export type {
-    AxiosResponse
-}
+export type { AxiosResponse }
