@@ -1,4 +1,3 @@
-import { describe, it, expect } from 'vitest'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import AppVue from '@/App.vue'
