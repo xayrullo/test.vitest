@@ -22,7 +22,7 @@ export async function setLocale(locale: string) {
   // Load locale if not available yet.
   if (!i18n.global.availableLocales.includes(locale)) {
     const messages = await loadLocale(locale);
-
+    console.log('Messages', messages)
     // fetch() error occurred.
     if (messages === undefined) {
       return;
@@ -37,7 +37,7 @@ export async function setLocale(locale: string) {
   // router.go();
 }
 
-function loadLocale(locale: string) :Promise<Object> {
+function loadLocale(locale: string) {
   return fetch(`../locales/${locale}.json`)
     .then((response) => {
       if (response.ok) {
