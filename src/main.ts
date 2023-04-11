@@ -6,7 +6,6 @@ import router from './router'
 
 import { i18n } from './plugins/i18n'
 
-import './assets/main.css'
 import "./assets/style/tailwind.css"
 
 const app = createApp(App)

@@ -18,11 +18,9 @@ export const i18n = createI18n({
 });
 
 // Set new locale.
-export async function setLocale(locale: string) {
+export async function changeLocale(locale: string) {
   // Load locale if not available yet.
   if (!i18n.global.availableLocales.includes(locale)) {
-    const messages = await loadLocale(locale);
-    console.log('Messages', messages)
     // fetch() error occurred.
     if (messages === undefined) {
       return;
