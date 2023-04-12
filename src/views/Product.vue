@@ -127,19 +127,33 @@ import { onMounted, ref, type Ref } from 'vue'
 import { useRoute, type RouteLocationNormalizedLoaded } from 'vue-router'
 import { useHead } from '@vueuse/head'
 
-import Header from '@/components/Header.vue'
-import axios from '@/plugins/axios';
-import type { IProduct } from '@/types/Product';
-import type { IGetResponse } from '@/types/GetResponse';
+import axios from '@/plugins/axios'
+import type { IProduct } from '@/types/Product'
+import type { IAttributeTemplate } from '@/types/AttributeTemplate'
 import { IMAGE_URL } from '@/utils/constants'
 
+interface IMixedPartner {
+  name: string,
+  type: number,
+  logo: string,
+  description: string,
+  duration: number,
+  f_duration: string,
+  f_monthly: string,
+  f_monthly_sum: string,
+  f_total_loan_price: string,
+  total_loan_price: number,
+  available: boolean,
+  promotion: boolean
+}
+
 const route = useRoute()
-const attributes: Ref<any> = ref([])
+const attributes: Ref<IAttributeTemplate[]> = ref([])
 const product: Ref<IProduct> = ref({} as IProduct)
 const active = ref('All')
 const partners_months = ref([])
-const partners: Ref<any> = ref([])
-const filterPartners: Ref<any> = ref([])
+const partners: Ref<IMixedPartner[]> = ref([])
+const filterPartners: Ref<IMixedPartner[]> = ref([])
 
 const isFixed: Ref<Boolean> = ref(false)
 
@@ -169,7 +183,7 @@ onMounted(() => {
   if (window.innerWidth < 768) {
     window.addEventListener('scroll', handleScroll)
   }
-  axios.get(`api/application/stock/detail-main?product_id=${route.params.id}`).then(res => {
+  axios.get(`api/application/stock/detail-main?product_id=${route.params.id}`).then((res) => {
     product.value = res.data.data.product
     useHead({
       title: product.value.name
