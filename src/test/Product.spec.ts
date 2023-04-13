@@ -64,3 +64,27 @@ describe('POST front-api/loan-info/stock', () => {
       })
   })
 })
+
+describe('GET api/application/stock/detail-description', () => {
+  it('Success => must be 200 and success', async () => {
+    await axios
+      .get(`api/application/stock/detail-descriptions?product_id=${product_id}`)
+      .then((res) => {
+        expect(res.status).toBe(CODE.SUCCESS)
+        const data: IGetResponse = res.data
+        expect(data.success).toBe(true)
+        expect(data.error_code).toBe(0)
+        console.log(res)
+      })
+  })
+  it('BAD REQUEST => must be 400 and Bad Request', async () => {
+    await axios
+      .get('api/application/stock/detail-descriptions')
+      .then((res) => {
+        expect(res.status).toBe(CODE.SUCCESS)
+      })
+      .catch((err) => {
+        expect(err.response.status).toBe(CODE.BAD_REQUEST)
+      })
+  })
+})
