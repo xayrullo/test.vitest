@@ -1,8 +1,10 @@
+// import { keys } from 'ts-transformer-keys'
 import axios from '@/plugins/axios'
 import type { IGetResponse } from '@/types/GetResponse'
 import type { IPartner } from '@/types/Partner'
 import type { IStock } from '@/types/Stock'
 import { CODE } from '@/utils/constants'
+import type { I } from 'vitest/dist/types-94cfe4b4'
 const product_id: string = '52c84d5e-6be0-11e9-8100-98f2b33e9417'
 
 // type TStock = IStock
@@ -42,6 +44,21 @@ describe('POST front-api/loan-info/stock', () => {
     expect(data.success).toBe(true)
     expect(data.error_code).toBe(0)
     const stock: IStock = data.data
+    // console.log(keys)
+    // // type K = keyof IStock;
+    // const iStockKeys: Array<keyof IStock> = Object.keys({} as IStock)
+    // console.log('iStockKeys', iStockKeys) 
+    interface MyInterface {
+      foo: string;
+      bar: number;
+      baz: boolean;
+    }
+    
+    const keys: Array<keyof MyInterface> = Object.keys({} as MyInterface);
+    
+    console.log(keys);
+    console.log('Stock', stock, Object.keys(stock))
+    expect(stock).keys(['months', 'partners'])
   })
   it('Empty => must get 500 Internal Server Error', async () => {
     await axios
@@ -74,7 +91,6 @@ describe('GET api/application/stock/detail-description', () => {
         const data: IGetResponse = res.data
         expect(data.success).toBe(true)
         expect(data.error_code).toBe(0)
-        console.log(res)
       })
   })
   it('BAD REQUEST => must be 400 and Bad Request', async () => {
