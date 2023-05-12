@@ -78,18 +78,16 @@ export function isLetter(e: any) {
   if (/^[a-zA-Z]{1}$/.test(e)) return true
   return false
 }
-//   priceFormat(price) {
-//     if (price) {
-//       let strPrice = price.toString()
-//       let strArr = []
-//       while (strPrice.length > 3) {
-//         strArr.push(strPrice.slice(strPrice.length - 3, strPrice.length))
-//         strPrice = strPrice.slice(0, strPrice.length - 3)
-//       }
-//       strArr.push(strPrice)
-//       return strArr.reverse().join(' ')
-//     }
-//   },
+export function priceFormat(price: number) {
+  let strPrice = price.toString()
+  const strArr = []
+  while (strPrice.length > 3) {
+    strArr.push(strPrice.slice(strPrice.length - 3, strPrice.length))
+    strPrice = strPrice.slice(0, strPrice.length - 3)
+  }
+  strArr.push(strPrice)
+  return strArr.reverse().join(' ')
+}
 //   phoneSpaceRemover(phone) {
 //     phone = phone.includes('+') > 0 ? phone.substring(1) : phone
 //     return `+${phone.split(' ').join('')}`
