@@ -74,11 +74,10 @@ export function stringToDate(date: string, format: string = 'DD.MM.YYYY'): IDate
     data: isValid ? new Date(`${month}/${day}/${year}`) : null
   }
 }
-//   isLetter(e) {
-//     let char = String.fromCharCode(e.keyCode)
-//     if (/^[A-Z]+$/.test(char) && char.length <= 2) return true
-//     e.preventDefault()
-//   },
+export function isLetter(e: any) {
+  if (/^[a-zA-Z]{1}$/.test(e)) return true
+  return false
+}
 //   priceFormat(price) {
 //     if (price) {
 //       let strPrice = price.toString()
