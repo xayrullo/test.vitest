@@ -88,18 +88,15 @@ export function priceFormat(price: number) {
   strArr.push(strPrice)
   return strArr.reverse().join(' ')
 }
-//   phoneSpaceRemover(phone) {
-//     phone = phone.includes('+') > 0 ? phone.substring(1) : phone
-//     return `+${phone.split(' ').join('')}`
-//   },
-//   phoneFormatter(phone) {
-//     if (phone && phone.length > 0) {
-//       phone = phone.includes('+') > 0 ? phone.substring(1) : phone
-//       let match = phone.match(/^(\d{3})(\d{2})(\d{3})(\d{4})$/)
-//       return `+(${match[1]})${match[2]} ${match[3]}-${match[4]}`
-//     }
-//     return 'Unknown'
-//   },
+export function phoneFormatter(phone: string) {
+  phone = phone.includes('+') ? phone.substring(1) : phone
+  let match: RegExpMatchArray | null = phone.match(/^(\d{3})(\d{2})(\d{3})(\d{4})$/)
+  if (Array.isArray(match) && match.length > 0) {
+    return `+(${match[1]})${match[2]} ${match[3]}-${match[4]}` 
+  } else {
+    return 'Is not phone template'
+  }
+}
 //   camelize(str) {
 //     return str
 //       .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
