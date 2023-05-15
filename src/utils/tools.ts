@@ -92,18 +92,18 @@ export function phoneFormatter(phone: string) {
   phone = phone.includes('+') ? phone.substring(1) : phone
   let match: RegExpMatchArray | null = phone.match(/^(\d{3})(\d{2})(\d{3})(\d{4})$/)
   if (Array.isArray(match) && match.length > 0) {
-    return `+(${match[1]})${match[2]} ${match[3]}-${match[4]}` 
+    return `+(${match[1]})${match[2]} ${match[3]}-${match[4]}`
   } else {
     return 'Is not phone template'
   }
 }
-//   camelize(str) {
-//     return str
-//       .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
-//         return index === 0 ? word.toLowerCase() : word.toUpperCase()
-//       })
-//       .replace(/\s+/g, '')
-//   },
+export function camelize(str: string) {
+  return str
+    .replace(/(?:^\w|[A-Z]|\b\w)/g, function (word, index) {
+      return index === 0 ? word.toLowerCase() : word.toUpperCase()
+    })
+    .replace(/\s+/g, '')
+}
 //   getDateTime(stringdate) {
 //     let date = new Date(stringdate)
 //     let year = date.getFullYear()
