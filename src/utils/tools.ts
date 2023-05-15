@@ -1,7 +1,3 @@
-// function addZeroBeforeMonth(e) {
-//   return e.length > 1 ? e : '0' + e
-// }
-
 import type { IDateResponse } from '@/types/DateResponse'
 
 export function isValidDate(day: number, month: number, year: number): Boolean {
@@ -104,22 +100,27 @@ export function camelize(str: string) {
     })
     .replace(/\s+/g, '')
 }
-//   getDateTime(stringdate) {
-//     let date = new Date(stringdate)
-//     let year = date.getFullYear()
-//     let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
-//     let day = addZeroBeforeMonth(date.getDate().toString())
-//     let hours = addZeroBeforeMonth(date.getHours().toString())
-//     let minutes = addZeroBeforeMonth(date.getMinutes().toString())
-//     return `${day}.${month}.${year} ${hours}:${minutes}`
-//   },
-//   getDate(stringdate) {
-//     let date = new Date(stringdate)
-//     let year = date.getFullYear()
-//     let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
-//     let day = addZeroBeforeMonth(date.getDate().toString())
-//     return `${day}.${month}.${year}`
-//   },
+
+function addZeroBeforeMonth(e: string) {
+  return e.length > 1 ? e : '0' + e
+}
+
+export function getDateTime(stringdate: Date) {
+  let date = new Date(stringdate)
+  let year = date.getFullYear()
+  let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
+  let day = addZeroBeforeMonth(date.getDate().toString())
+  let hours = addZeroBeforeMonth(date.getHours().toString())
+  let minutes = addZeroBeforeMonth(date.getMinutes().toString())
+  return `${day}.${month}.${year} ${hours}:${minutes}`
+}
+export function getDate(stringdate: Date) {
+  let date = new Date(stringdate)
+  let year = date.getFullYear()
+  let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
+  let day = addZeroBeforeMonth(date.getDate().toString())
+  return `${day}.${month}.${year}`
+}
 //   focusI(a) {
 //     document.getElementById(a).focus()
 //   }
