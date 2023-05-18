@@ -1,5 +1,5 @@
 export interface IBrand {
-  attribute_id: number,
-  attribute_name: string,
+  attribute_id: number
+  attribute_name: string
   text: string
 }

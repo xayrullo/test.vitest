@@ -1,6 +1,6 @@
-import type { IPartner } from "./Partner";
+import type { IPartner } from './Partner'
 
 export interface IStock {
-  months: Array<number>,
+  months: Array<number>
   partners: Array<IPartner>
 }

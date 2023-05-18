@@ -47,16 +47,16 @@ describe('POST front-api/loan-info/stock', () => {
     // console.log(keys)
     // // type K = keyof IStock;
     // const iStockKeys: Array<keyof IStock> = Object.keys({} as IStock)
-    // console.log('iStockKeys', iStockKeys) 
+    // console.log('iStockKeys', iStockKeys)
     interface MyInterface {
-      foo: string;
-      bar: number;
-      baz: boolean;
+      foo: string
+      bar: number
+      baz: boolean
     }
-    
-    const keys: Array<keyof MyInterface> = Object.keys({} as MyInterface);
-    
-    console.log(keys);
+
+    const keys: Array<keyof MyInterface> = Object.keys({} as MyInterface)
+
+    console.log(keys)
     console.log('Stock', stock, Object.keys(stock))
     expect(stock).keys(['months', 'partners'])
   })

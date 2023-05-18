@@ -1,7 +1,7 @@
-import type { IAttribute } from "./Attribute";
+import type { IAttribute } from './Attribute'
 
 export interface IAttributeTemplate {
-    attributes: Array<IAttribute>,
-    id: number,
-    title: string
+  attributes: Array<IAttribute>
+  id: number
+  title: string
 }

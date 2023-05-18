@@ -22,10 +22,9 @@ import type { LOCALES } from '@/utils/constants';
 import { ref, onMounted, type Ref } from 'vue'
 import { i18n, changeLocale } from '@/plugins/i18n'
 import { LOCALES, STORAGE_NAME } from '@/utils/constants'
-
 </script>
 <style scoped>
 .active {
-    @apply bg-white rounded-lg text-gray-600 shadow
+  @apply bg-white rounded-lg text-gray-600 shadow;
 }
 </style>

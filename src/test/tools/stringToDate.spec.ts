@@ -1,5 +1,5 @@
 import { stringToDate } from '@/utils/tools'
-import type { IDateResponse } from "@/types/DateResponse"
+import type { IDateResponse } from '@/types/DateResponse'
 
 interface IDateWithFormat {
   date: string
@@ -11,7 +11,9 @@ describe('Check parse string date to Date format', () => {
     expect(parsedDate.data?.getTime()).toBe(new Date('11.23.1999').getTime())
     const stringDates: string[] = ['23.11.1999', '23-11-1999', '23/11/1999']
     for (let index = 0; index < stringDates.length; index++) {
-      expect(stringToDate(stringDates[index]).data?.getTime()).toBe(new Date('11/23/1999').getTime())
+      expect(stringToDate(stringDates[index]).data?.getTime()).toBe(
+        new Date('11/23/1999').getTime()
+      )
     }
   })
   it('Send valid string with changing date format', () => {
@@ -23,7 +25,9 @@ describe('Check parse string date to Date format', () => {
       { date: '1999/11/23', format: 'yyyy.mm.dd' }
     ]
     for (let index = 0; index < stringDates.length; index++) {
-      expect(stringToDate(stringDates[index].date, stringDates[index].format).data?.getTime()).toBe(new Date('11/23/1999').getTime())
+      expect(stringToDate(stringDates[index].date, stringDates[index].format).data?.getTime()).toBe(
+        new Date('11/23/1999').getTime()
+      )
     }
   })
   it('Error cases', () => {

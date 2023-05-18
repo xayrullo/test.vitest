@@ -1,4 +1,4 @@
 export interface IAvailability {
-  text: string,
+  text: string
   type: string
 }

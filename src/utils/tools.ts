@@ -1,7 +1,7 @@
 import type { IDateResponse } from '@/types/DateResponse'
 
 export function isValidDate(day: number, month: number, year: number): Boolean {
-  var d: Date = new Date(year, month - 1, day)
+  const d: Date = new Date(year, month - 1, day)
   if (d.getFullYear() === year && d.getMonth() === month - 1 && d.getDate() === day) {
     return true
   }
@@ -86,7 +86,7 @@ export function priceFormat(price: number) {
 }
 export function phoneFormatter(phone: string) {
   phone = phone.includes('+') ? phone.substring(1) : phone
-  let match: RegExpMatchArray | null = phone.match(/^(\d{3})(\d{2})(\d{3})(\d{4})$/)
+  const match: RegExpMatchArray | null = phone.match(/^(\d{3})(\d{2})(\d{3})(\d{4})$/)
   if (Array.isArray(match) && match.length > 0) {
     return `+(${match[1]})${match[2]} ${match[3]}-${match[4]}`
   } else {
@@ -106,19 +106,19 @@ function addZeroBeforeMonth(e: string) {
 }
 
 export function getDateTime(stringdate: Date) {
-  let date = new Date(stringdate)
-  let year = date.getFullYear()
-  let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
-  let day = addZeroBeforeMonth(date.getDate().toString())
-  let hours = addZeroBeforeMonth(date.getHours().toString())
-  let minutes = addZeroBeforeMonth(date.getMinutes().toString())
+  const date = new Date(stringdate)
+  const year = date.getFullYear()
+  const month = addZeroBeforeMonth((1 + date.getMonth()).toString())
+  const day = addZeroBeforeMonth(date.getDate().toString())
+  const hours = addZeroBeforeMonth(date.getHours().toString())
+  const minutes = addZeroBeforeMonth(date.getMinutes().toString())
   return `${day}.${month}.${year} ${hours}:${minutes}`
 }
 export function getDate(stringdate: Date) {
-  let date = new Date(stringdate)
-  let year = date.getFullYear()
-  let month = addZeroBeforeMonth((1 + date.getMonth()).toString())
-  let day = addZeroBeforeMonth(date.getDate().toString())
+  const date = new Date(stringdate)
+  const year = date.getFullYear()
+  const month = addZeroBeforeMonth((1 + date.getMonth()).toString())
+  const day = addZeroBeforeMonth(date.getDate().toString())
   return `${day}.${month}.${year}`
 }
 //   focusI(a) {

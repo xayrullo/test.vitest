@@ -133,17 +133,17 @@ import type { IAttributeTemplate } from '@/types/AttributeTemplate'
 import { IMAGE_URL } from '@/utils/constants'
 
 interface IMixedPartner {
-  name: string,
-  type: number,
-  logo: string,
-  description: string,
-  duration: number,
-  f_duration: string,
-  f_monthly: string,
-  f_monthly_sum: string,
-  f_total_loan_price: string,
-  total_loan_price: number,
-  available: boolean,
+  name: string
+  type: number
+  logo: string
+  description: string
+  duration: number
+  f_duration: string
+  f_monthly: string
+  f_monthly_sum: string
+  f_total_loan_price: string
+  total_loan_price: number
+  available: boolean
   promotion: boolean
 }
 
